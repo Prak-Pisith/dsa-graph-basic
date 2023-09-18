@@ -16,10 +16,13 @@ export class Graph<T> {
 
 // Initialized
 
-const graph = new Graph();
-graph.addNode('a', ['b', 'c']);
-graph.addNode('b', ['d']);
-graph.addNode('c', ['e']);
-graph.addNode('d', ['f']);
+export function initializedGraph (): Graph<string> {
 
-console.log(graph.nodes);
+  const graph = new Graph<string>();
+  graph.addNode('a', ['b', 'c']);
+  graph.addNode('b', ['d']);
+  graph.addNode('c', ['e']);
+  graph.addNode('d', ['f']);
+
+  return graph;
+}
