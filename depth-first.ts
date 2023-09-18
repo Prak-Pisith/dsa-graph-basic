@@ -1,5 +1,6 @@
 import { Graph, initializedGraph } from "./graph";
 
+// Iteratively
 function depthFirstPrint<T> (graph: Graph<T>, source: T) {
 
   const visited = new Set<T>();
@@ -24,9 +25,25 @@ function depthFirstPrint<T> (graph: Graph<T>, source: T) {
   }
 }
 
+// Recursively
+function depthFirstPrintRecursive<T> (graph: Graph<T>, source: T) {
+
+  const visited = new Set<T>();
+  if (visited.has(source)) {
+    return;
+  }
+  console.log('current recursive: ' + source);
+  visited.add(source);
+
+  for (const neighbor of graph.nodes.get(source) ?? []) {
+    depthFirstPrintRecursive(graph, neighbor);
+  }
+}
+
 // Initialized Graph
 
 const graph = initializedGraph();
 const source = 'a';
 
 depthFirstPrint(graph, source);
+depthFirstPrintRecursive(graph, source);
