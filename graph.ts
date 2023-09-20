@@ -26,3 +26,14 @@ export function initializedGraph (): Graph<string> {
 
   return graph;
 }
+
+export function initializedGraphV2 (): Graph<string> {
+  const graph = new Graph<string>();
+  graph.addNode('f', ['g', 'i']);
+  graph.addNode('g', ['h']);
+  graph.addNode('h', []);
+  graph.addNode('i', ['g', 'k']);
+  graph.addNode('j', ['i']);
+  graph.addNode('k', []);
+  return graph;
+}
