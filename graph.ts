@@ -37,3 +37,15 @@ export function initializedGraphV2 (): Graph<string> {
   graph.addNode('k', []);
   return graph;
 }
+
+export function initializedGraphUndirected (): Graph<string> {
+  const graph = new Graph<string>();
+  graph.addNode('i', ['j', 'k']);
+  graph.addNode('j', ['i']);
+  graph.addNode('k', ['i', 'm', 'l']);
+  graph.addNode('l', ['k']);
+  graph.addNode('m', ['k']);
+  graph.addNode('n', ['o']);
+  graph.addNode('o', ['n']);
+  return graph;
+}
